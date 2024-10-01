@@ -1,5 +1,5 @@
-"""
-Queue may be implemented with Lists just as Stacks. But deque are preferred
+
+"""Queue may be implemented with Lists just as Stacks. But deque are preferred
 because they allowed optimized accessing/deleting from both ends.
 
 Deleting from the front of a list is O(n) as all other elements need to be shifted
@@ -15,25 +15,26 @@ class Queue:
         self._data = deque()
 
     def is_empty(self):
-        # TODO: Replace 'pass' with your code
-        pass
+        return len(self._data) == 0
+        
 
     @property
     def size(self):
-        # TODO: Replace 'pass' with your code
-        pass
+        return len(self._data)
+        
 
     def enqueue(self, item):
-        # TODO: Replace 'pass' with your code
-        pass
+        self._data.append(item)
 
     def peek(self):
-        # TODO: Replace 'pass' with your code
-        pass
+        if self.is_empty():
+            raise IndexError('peek empty queue')
+        return self._data[0]
 
     def dequeue(self):
-        # TODO: Replace 'pass' with your code
-        pass
+        if self.is_empty():
+            raise IndexError('dequeue empty queue')
+        return self._data.popleft()
 
     def __str__(self) -> str:
         return str(self._data)
@@ -51,4 +52,9 @@ if __name__ == "__main__":
     print("Size of Queue: ", q.size)
     print("Pop from Queue: ", q.dequeue())
     print("Size of Queue: ", q.size)
-    print("Peek the Queue: ", q.peek())
+
+    try:
+        print("Peek the Queue: ", q.peek())
+
+    except IndexError as I:
+        print('Error:', I)

@@ -14,9 +14,7 @@ class Stack:
             item (obj):
                 Any object that is to be added to the stack
         """
-        # TODO: Replace 'pass' with your code
-
-        pass
+        self._data.append(item)
 
     def peek(self) -> int:
         """
@@ -26,20 +24,20 @@ class Stack:
             Exception is raised if the stack is empty
         """
 
-        # TODO: Replace 'pass' with your code
-        pass
+        if self.is_empty():
+            raise Exception
+        return self._data[-1]
 
     def is_empty(self) -> bool:
         """Return True if the stack is empty"""
 
-        # TODO: Replace 'pass' with your code
-        pass
+        return len(self._data) == 0
+        
 
     def size(self) -> int:
         """Return the size of the stack"""
 
-        # TODO: Replace 'pass' with your code
-        pass
+        return len(self._data)
 
     def pop(self) -> int:
         """
@@ -50,8 +48,9 @@ class Stack:
 
         """
 
-        # TODO: Replace 'pass' with your code
-        pass
+        if self.is_empty():
+            raise Exception
+        return self._data.pop()
 
 
 if __name__ == "__main__":
